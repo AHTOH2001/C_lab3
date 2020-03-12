@@ -60,7 +60,7 @@ int problem2()
     printf("Enter N:");
     scanf("%s", &s);
     n = stod(s);
-    if (n >= 100 || n == err)
+    if (n >= 100 || n == err || n<=0)
     {
         printf("error\n");
         return 0;
@@ -76,7 +76,7 @@ int problem2()
         {
             scanf("%s", &s);
             a[i][j] = stod(s);
-            if (a[i][j] >= 10000 || a[i][j] == err)
+            if (abs(a[i][j]) >= 10000 || a[i][j] == err)
             {
                 printf("error\n");
                 return 0;
@@ -87,7 +87,7 @@ int problem2()
     {
         scanf("%s", &s);
         a[i][n] = stod(s);
-        if (a[i][n] >= 10000 || a[i][j] == err)
+        if (abs(a[i][n]) >= 10000 || a[i][j] == err)
         {
             printf("error\n");
             return 0;
