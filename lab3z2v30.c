@@ -4,7 +4,7 @@
 #define true 1
 #define false 0
 #define err -2000123000
-#define max 9223372036854775807
+#define max 2147483646
 
 double stod(char s[1000])
 {
@@ -55,26 +55,25 @@ int problem2()
 {
     int n = 0, i, j, k;
     char s[1000];
-    double caef;
+    double caef,*ans,**a;
     printf("A*X=B\n");
     printf("Enter N:");
-    scanf("%s", &s);
+    scanf("%s", s);
     n = stod(s);
-    if (n >= 100 || n == err || n<=0)
+    if (n >= 100 || n == err || n <= 0)
     {
         printf("error\n");
         return 0;
     }
-    double *ans = (double *)malloc(n * sizeof(double));
-    double **a = (double **)malloc(n * sizeof(double *));
+    ans = (double *)malloc(n * sizeof(double));
+    a = (double **)malloc(n * sizeof(double *));
     for (i = 0; i < n; i++)
         a[i] = (double *)malloc((n + 1) * sizeof(double));
-
     printf("Enter square matrix:\n");
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
         {
-            scanf("%s", &s);
+            scanf("%s", s);
             a[i][j] = stod(s);
             if (abs(a[i][j]) >= 10000 || a[i][j] == err)
             {
@@ -85,7 +84,7 @@ int problem2()
     printf("Enter column B\n");
     for (i = 0; i < n; i++)
     {
-        scanf("%s", &s);
+        scanf("%s", s);
         a[i][n] = stod(s);
         if (abs(a[i][n]) >= 10000 || a[i][j] == err)
         {
